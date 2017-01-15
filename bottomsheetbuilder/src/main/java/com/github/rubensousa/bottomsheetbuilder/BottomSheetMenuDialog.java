@@ -196,13 +196,18 @@ public class BottomSheetMenuDialog extends BottomSheetDialog implements BottomSh
                 mCallback.onStateChanged(bottomSheet, newState);
             }
 
-            if (newState == BottomSheetBehavior.STATE_HIDDEN &&  isShowing()) {
+            if (newState == BottomSheetBehavior.STATE_HIDDEN ) {
+                try{
                 mBehavior.setBottomSheetCallback(null);
                 BottomSheetMenuDialog.super.dismiss();
 
                 // User dragged the sheet.
                 if (!mClicked && !mRequestDismiss && !mRequestCancel && mOnCancelListener != null) {
                     mOnCancelListener.onCancel(BottomSheetMenuDialog.this);
+                }
+                }
+                catch(Exception e)
+                {
                 }
             }
         }
