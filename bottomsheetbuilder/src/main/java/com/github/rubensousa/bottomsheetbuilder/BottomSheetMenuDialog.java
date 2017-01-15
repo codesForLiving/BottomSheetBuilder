@@ -196,7 +196,7 @@ public class BottomSheetMenuDialog extends BottomSheetDialog implements BottomSh
                 mCallback.onStateChanged(bottomSheet, newState);
             }
 
-            if (newState == BottomSheetBehavior.STATE_HIDDEN) {
+            if (newState == BottomSheetBehavior.STATE_HIDDEN &&  isShowing()) {
                 mBehavior.setBottomSheetCallback(null);
                 BottomSheetMenuDialog.super.dismiss();
 
